@@ -40,10 +40,6 @@
                 <img src="definitely-logo.png" alt="Definitely app logo" decoding="async">
                 <span>Definitely</span>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="credits.html">Credits</a>
-            </nav>
         </header>
 
         <main>
@@ -88,10 +84,24 @@
             <p class="page-text">This app is not intended for children under 13.</p>
 
             <div class="page-footer">
-                Questions? Reach out at <a class="link" href="mailto:wayne.vernon@gmail.com">wayne.vernon@gmail.com</a>.
+                Questions? <a class="link" data-email-user="wayne.vernon" data-email-domain="gmail.com">Email us</a>.
             </div>
         </main>
     </div>
+    <script>
+        (function obfuscateEmail() {
+            const nodes = document.querySelectorAll("[data-email-user][data-email-domain]");
+            nodes.forEach(node => {
+                const user = node.getAttribute("data-email-user");
+                const domain = node.getAttribute("data-email-domain");
+                const address = `${user}@${domain}`;
+                node.setAttribute("href", `mailto:${address}`);
+                if (!node.textContent.trim()) {
+                    node.textContent = "Contact";
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
