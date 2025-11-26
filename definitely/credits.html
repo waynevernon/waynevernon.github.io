@@ -4,138 +4,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credits & Licenses</title>
+    <title>Definitely | Credits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg: #05070d;
+            --panel: rgba(255, 255, 255, 0.04);
+            --panel-strong: rgba(255, 255, 255, 0.08);
+            --text: #f7f9fb;
+            --muted: #a9b4c4;
+            --accent: #7cf0c9;
+            --accent-strong: #44d9a3;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.7;
-            color: #1d1d1f;
-            background-color: #fff;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.3em;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 0.6rem;
-            letter-spacing: -0.01em;
-        }
-
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            margin: 0.5rem 0 1.5rem 1.25rem;
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #007aff;
-            font-weight: bold;
+            font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(120% 120% at 18% 0%, rgba(124, 240, 201, 0.16), transparent),
+                radial-gradient(120% 120% at 90% 0%, rgba(84, 132, 255, 0.18), transparent),
+                var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
         a {
-            color: #007aff;
+            color: inherit;
             text-decoration: none;
-            transition: opacity 0.2s;
         }
 
-        a:hover {
-            opacity: 0.7;
+        .shell {
+            width: min(820px, 92vw);
+            margin: 0 auto;
+            padding: 28px 0 60px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 14px;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            color: var(--muted);
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: var(--panel);
+            border-color: var(--border);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 2.9rem);
+            letter-spacing: -0.03em;
+        }
+
+        p.lede {
+            margin-top: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .item {
+            padding: 14px;
+            border-radius: 14px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+        }
+
+        .item a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 600;
+        }
+
+        .item p {
+            margin-top: 6px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .license {
+            margin-top: 8px;
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(124, 240, 201, 0.12);
+            color: #b5ffe9;
+            font-size: 0.85rem;
+        }
+
+        details {
+            margin-top: 12px;
+            border-radius: 12px;
+            background: var(--panel-strong);
+            border: 1px solid var(--border);
+            padding: 12px 14px;
+        }
+
+        details summary {
+            cursor: pointer;
+            color: var(--text);
+            font-weight: 600;
+            list-style: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
         }
 
         pre {
-            background-color: #f5f5f7;
-            padding: 1.2rem;
-            border-radius: 8px;
+            margin-top: 10px;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            color: var(--muted);
             overflow-x: auto;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             line-height: 1.6;
-            margin: 1rem 0 2rem 0;
-            font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #000;
-                color: #f5f5f7;
-            }
-
-            pre {
-                background-color: #1d1d1f;
-            }
+            font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
         }
     </style>
 </head>
 
 <body>
-    <h1>Credits & Licenses</h1>
-    <p>Definitely is built with the help of these open resources:</p>
+    <div class="shell">
+        <header>
+            <div class="brand">
+                <img src="definitely-logo.png" alt="Definitely app logo">
+                <span>Definitely</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </header>
 
-    <h2>Open Source Dependencies</h2>
-    <ul>
-        <li>
-            <a href="https://github.com/PostHog/posthog-ios" target="_blank" rel="noopener noreferrer">PostHog iOS</a>
-            — MIT License — analytics client for product insights with privacy controls.
-        </li>
-        <li>
-            <a href="https://github.com/simibac/ConfettiSwiftUI" target="_blank"
-                rel="noopener noreferrer">ConfettiSwiftUI</a>
-            — MIT License — confetti animations to celebrate milestones.
-        </li>
-    </ul>
+        <main>
+            <h1>Credits & Licenses</h1>
+            <p class="lede">Definitely is built with a handful of open tools and APIs. Thank you to the teams who make
+                them available.</p>
 
-    <h2>APIs & Data Sources</h2>
-    <ul>
-        <li>
-            <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">dictionaryapi.dev</a>
-            — free dictionary definitions for word lookups.
-        </li>
-        <li>
-            <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener noreferrer">Datamuse API</a>
-            — word suggestions and related terms.
-        </li>
-    </ul>
+            <h2>Open source</h2>
+            <div class="list">
+                <div class="item">
+                    <a href="https://github.com/PostHog/posthog-ios" target="_blank" rel="noopener noreferrer">PostHog
+                        iOS</a>
+                    <span class="license">MIT</span>
+                    <p>Analytics client used for privacy-focused product insights and reliability tracking.</p>
+                </div>
+                <div class="item">
+                    <a href="https://github.com/simibac/ConfettiSwiftUI" target="_blank"
+                        rel="noopener noreferrer">ConfettiSwiftUI</a>
+                    <span class="license">MIT</span>
+                    <p>SwiftUI confetti animations for celebrating milestones and streaks.</p>
+                </div>
+            </div>
 
-    <p>MIT components below include full license text. API usage is subject to each provider's terms.</p>
+            <h2>APIs & data</h2>
+            <div class="list">
+                <div class="item">
+                    <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">dictionaryapi.dev</a>
+                    <p>Free dictionary definitions that keep lookups fast inside the app.</p>
+                </div>
+                <div class="item">
+                    <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener noreferrer">Datamuse API</a>
+                    <p>Word suggestions and related terms to help you capture the right vocabulary.</p>
+                </div>
+            </div>
 
-    <h2>License Texts</h2>
-
-    <h3>PostHog iOS — MIT License</h3>
-    <pre>MIT License
+            <h2>License texts</h2>
+            <details>
+                <summary>PostHog iOS — MIT License</summary>
+                <pre>MIT License
 
 Copyright (c) 2023 PostHog
 
@@ -156,9 +248,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</pre>
+            </details>
 
-    <h3>ConfettiSwiftUI — MIT License</h3>
-    <pre>MIT License
+            <details>
+                <summary>ConfettiSwiftUI — MIT License</summary>
+                <pre>MIT License
 
 Copyright (c) 2020 Simon Bachmann
 
@@ -179,7 +273,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</pre>
-
+            </details>
+        </main>
+    </div>
 </body>
 
 </html>
