@@ -298,7 +298,7 @@
 
         appStoreLink?.addEventListener("click", () => {
             if (window.posthog && typeof posthog.capture === "function") {
-                posthog.capture("app_store_click", { location: "hero_cta" });
+                posthog.capture("App Store Click", { location: "hero_cta" });
             }
         });
 
