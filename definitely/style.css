@@ -188,6 +188,11 @@ h3 {
     flex-wrap: wrap;
 }
 
+.cta.top {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
 .app-store {
     display: inline-flex;
     align-items: center;
@@ -270,10 +275,12 @@ h3 {
 
 .slides {
     display: grid;
+    min-height: 360px;
 }
 
 .slide {
     display: none;
+    height: 100%;
     border-radius: 18px;
     padding: 18px;
     border: 1px solid var(--border);
