@@ -5,408 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Definitely | Remember every word</title>
+    <meta name="description"
+        content="Definitely is an iOS flashcard app that keeps your vocabulary synced with iCloud, adapts reviews to you, and never sends your words to our servers.">
+    <meta name="theme-color" content="#05070d">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://waynevernon.com/definitely/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Definitely | Remember every word">
+    <meta property="og:description"
+        content="Capture words fast, review with spaced repetition, and keep everything private with iCloud sync.">
+    <meta property="og:url" content="https://waynevernon.com/definitely/">
+    <meta property="og:site_name" content="Definitely">
+    <meta property="og:image" content="https://waynevernon.com/definitely/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Definitely | Remember every word">
+    <meta name="twitter:description"
+        content="Capture words fast, review with spaced repetition, and keep everything private with iCloud sync.">
+    <meta name="twitter:image" content="https://waynevernon.com/definitely/social-card.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <style>
-        :root {
-            --bg: #05070d;
-            --panel: rgba(255, 255, 255, 0.04);
-            --panel-strong: rgba(255, 255, 255, 0.08);
-            --text: #f7f9fb;
-            --muted: #a9b4c4;
-            --accent: #7cf0c9;
-            --accent-strong: #44d9a3;
-            --border: rgba(255, 255, 255, 0.08);
-            --glow: 0 25px 80px rgba(68, 217, 163, 0.25);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(120% 120% at 20% 10%, rgba(124, 240, 201, 0.14), transparent),
-                radial-gradient(120% 120% at 80% 0%, rgba(97, 162, 255, 0.18), transparent),
-                var(--bg);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .shell {
-            width: min(1100px, 92vw);
-            margin: 0 auto;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 26px 0;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .brand img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            object-fit: contain;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.95rem;
-        }
-
-        nav a {
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: transparent;
-            border: 1px solid transparent;
-            transition: all 0.2s ease;
-            color: var(--muted);
-        }
-
-        nav a:hover {
-            border-color: var(--border);
-            color: var(--text);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        main {
-            padding: 36px 0 80px;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: var(--panel);
-            color: var(--muted);
-            font-size: 0.9rem;
-            letter-spacing: 0.01em;
-            border: 1px solid var(--border);
-        }
-
-        h1 {
-            font-size: clamp(2.4rem, 4vw, 3.3rem);
-            margin: 18px 0 14px;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-        }
-
-        .lede {
-            color: var(--muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            max-width: 560px;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 24px 0 22px;
-            display: grid;
-            gap: 12px;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-        }
-
-        .feature-list .icon {
-            width: 12px;
-            height: 12px;
-            margin-top: 4px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-            box-shadow: 0 0 0 6px rgba(124, 240, 201, 0.12);
-        }
-
-        .cta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .app-store {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 14px;
-            padding: 6px;
-            border: 1px solid var(--border);
-            background: var(--panel-strong);
-            transition: transform 0.12s ease, box-shadow 0.2s ease;
-        }
-
-        .app-store img {
-            height: 46px;
-            width: auto;
-            display: block;
-        }
-
-        .app-store:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--glow);
-        }
-
-        .secondary-link {
-            color: var(--muted);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            font-weight: 500;
-        }
-
-        .hero-visual {
-            position: relative;
-            padding: 22px;
-        }
-
-        .glow {
-            position: absolute;
-            inset: 0;
-            filter: blur(48px);
-            background: radial-gradient(circle at 40% 30%, rgba(124, 240, 201, 0.35), transparent 45%),
-                radial-gradient(circle at 80% 20%, rgba(84, 132, 255, 0.3), transparent 35%);
-            opacity: 0.8;
-            pointer-events: none;
-        }
-
-        .device {
-            position: relative;
-            border-radius: 30px;
-            padding: 24px;
-            background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-            border: 1px solid var(--border);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), var(--glow);
-            overflow: hidden;
-        }
-
-        .device::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 30px;
-            padding: 1px;
-            background: linear-gradient(140deg, rgba(124, 240, 201, 0.3), rgba(84, 132, 255, 0.2));
-            mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-            -webkit-mask:
-                linear-gradient(#000, #000) content-box,
-                linear-gradient(#000, #000);
-            mask-composite: exclude;
-            -webkit-mask-composite: xor;
-            pointer-events: none;
-        }
-
-        .status-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-            color: var(--muted);
-            font-size: 0.85rem;
-            letter-spacing: 0.06em;
-        }
-
-        .carousel {
-            position: relative;
-        }
-
-        .slides {
-            display: grid;
-        }
-
-        .slide {
-            display: none;
-            border-radius: 18px;
-            padding: 18px;
-            border: 1px solid var(--border);
-            background: linear-gradient(150deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-        }
-
-        .slide.active {
-            display: block;
-        }
-
-        .mock-screen {
-            background: linear-gradient(180deg, rgba(10, 14, 24, 0.9), rgba(10, 14, 24, 0.7));
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            padding: 18px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        }
-
-        .mock-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 10px;
-            border-radius: 10px;
-            background: rgba(124, 240, 201, 0.12);
-            color: #b5ffe9;
-            font-size: 0.85rem;
-            letter-spacing: 0.01em;
-        }
-
-        .card-list {
-            display: grid;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .card-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .card-row strong {
-            letter-spacing: -0.01em;
-        }
-
-        .pill {
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(84, 132, 255, 0.16);
-            color: #c4d6ff;
-            font-size: 0.82rem;
-        }
-
-        .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .nav-buttons button {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--panel);
-            color: var(--text);
-            cursor: pointer;
-            transition: transform 0.12s ease, border-color 0.2s ease, background 0.2s ease;
-        }
-
-        .nav-buttons button:hover {
-            transform: translateY(-1px);
-            border-color: rgba(124, 240, 201, 0.6);
-            background: var(--panel-strong);
-        }
-
-        .dots {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .dots button {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.18);
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .dots .active {
-            width: 18px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--muted);
-            font-size: 0.95rem;
-            padding: 32px 0 26px;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .footer a {
-            color: var(--text);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        @media (max-width: 720px) {
-            header {
-                gap: 12px;
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="definitely-logo.png">
+    <link rel="manifest" href="site.webmanifest">
+    <script type="application/ld+json">
+        [
+            {
+                "@context": "https://schema.org",
+                "@type": "MobileApplication",
+                "name": "Definitely",
+                "operatingSystem": "iOS",
+                "applicationCategory": "EducationApplication",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "url": "https://waynevernon.com/definitely/",
+                "image": "https://waynevernon.com/definitely/social-card.svg",
+                "downloadUrl": "https://apps.apple.com/",
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Definitely"
+                }
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Definitely",
+                "url": "https://waynevernon.com/definitely/",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://waynevernon.com/definitely/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
             }
-
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .device {
-                padding: 18px;
-            }
-        }
-    </style>
+        ]
+    </script>
 </head>
 
 <body>
     <div class="shell">
         <header>
             <div class="brand">
-                <img src="definitely-logo.png" alt="Definitely app logo">
+                <img src="definitely-logo.png" alt="Definitely app logo" decoding="async">
                 <span>Definitely</span>
             </div>
             <nav>
@@ -438,7 +103,7 @@
                             href="https://apps.apple.com/"
                             target="_blank" rel="noopener noreferrer">
                             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                alt="Download on the App Store">
+                                alt="Download on the App Store" loading="lazy" decoding="async">
                         </a>
                         <a class="secondary-link" href="privacy.html">Read the privacy promise</a>
                     </div>
@@ -463,25 +128,21 @@
                                             <div class="card-row">
                                                 <div>
                                                     <strong>elevate</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Raise
-                                                        to a higher standard</p>
+                                                    <p class="lede">Raise to a higher standard</p>
                                                 </div>
                                                 <span class="pill">due now</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>serendipity</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Happy,
-                                                        unexpected discovery</p>
+                                                    <p class="lede">Happy, unexpected discovery</p>
                                                 </div>
-                                                <span class="pill" style="background: rgba(124, 240, 201, 0.16); color: #b5ffe9;">+3
-                                                    xp</span>
+                                                <span class="pill success">+3 xp</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>incipient</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Starting
-                                                        to come into being</p>
+                                                    <p class="lede">Starting to come into being</p>
                                                 </div>
                                                 <span class="pill">later today</span>
                                             </div>
@@ -499,24 +160,21 @@
                                             <div class="card-row">
                                                 <div>
                                                     <strong>ephemeral</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Lasting
-                                                        for a very short time</p>
+                                                    <p class="lede">Lasting for a very short time</p>
                                                 </div>
-                                                <span class="pill" style="background: rgba(124, 240, 201, 0.16); color: #b5ffe9;">suggested</span>
+                                                <span class="pill success">suggested</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>mnemonic</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Memory
-                                                        aid that sticks</p>
+                                                    <p class="lede">Memory aid that sticks</p>
                                                 </div>
                                                 <span class="pill">auto-define</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>lingua franca</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Shared
-                                                        bridge language</p>
+                                                    <p class="lede">Shared bridge language</p>
                                                 </div>
                                                 <span class="pill">save</span>
                                             </div>
@@ -534,24 +192,21 @@
                                             <div class="card-row">
                                                 <div>
                                                     <strong>Daily 8:00 PM</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">15
-                                                        cards, 3 minutes</p>
+                                                    <p class="lede">15 cards, 3 minutes</p>
                                                 </div>
-                                                <span class="pill" style="background: rgba(124, 240, 201, 0.16); color: #b5ffe9;">on</span>
+                                                <span class="pill success">on</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>Weekly digest</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">New
-                                                        words learned + streaks</p>
+                                                    <p class="lede">New words learned + streaks</p>
                                                 </div>
                                                 <span class="pill">Sunday</span>
                                             </div>
                                             <div class="card-row">
                                                 <div>
                                                     <strong>Focus mode</strong>
-                                                    <p class="lede" style="margin: 4px 0 0; font-size: 0.95rem;">Hide
-                                                        spoilers until reveal</p>
+                                                    <p class="lede">Hide spoilers until reveal</p>
                                                 </div>
                                                 <span class="pill">enabled</span>
                                             </div>
@@ -589,6 +244,7 @@
         const dotButtons = Array.from(document.querySelectorAll(".dots button"));
         const prev = document.querySelector(".prev");
         const next = document.querySelector(".next");
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
         let current = 0;
         let timer = null;
@@ -600,6 +256,9 @@
         }
 
         function restartTimer() {
+            if (prefersReducedMotion.matches) {
+                return;
+            }
             clearInterval(timer);
             timer = setInterval(() => showSlide(current + 1), 5200);
         }
@@ -622,6 +281,20 @@
         });
 
         restartTimer();
+
+        const handleMotionChange = (event) => {
+            if (event.matches) {
+                clearInterval(timer);
+            } else {
+                restartTimer();
+            }
+        };
+
+        if (prefersReducedMotion.addEventListener) {
+            prefersReducedMotion.addEventListener("change", handleMotionChange);
+        } else if (prefersReducedMotion.addListener) {
+            prefersReducedMotion.addListener(handleMotionChange);
+        }
     </script>
 </body>
 

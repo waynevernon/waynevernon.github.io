@@ -1,0 +1,23 @@
+{
+  "name": "Definitely",
+  "short_name": "Definitely",
+  "start_url": "/definitely/",
+  "scope": "/definitely/",
+  "display": "standalone",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [
+    {
+      "src": "definitely-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64 128x128 256x256",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
