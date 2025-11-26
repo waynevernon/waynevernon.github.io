@@ -4,78 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Credits & Licenses</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 20px;
             line-height: 1.6;
             color: #1a1a1a;
-            padding: 0 20px;
+            background-color: #ffffff;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 40px;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 2em;
+            margin-bottom: 0.75em;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #333;
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 1em;
+        }
+
+        ul {
+            margin: 0.5em 0 1.5em 0;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.75em;
         }
 
         a {
             color: #007aff;
             text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #000;
+                color: #f5f5f5;
+            }
+
+            h1,
+            h2 {
+                color: #fff;
+            }
+
+            h3 {
+                color: #e5e5e5;
+            }
+
+            pre {
+                background-color: #1a1a1a;
+                color: #e5e5e5;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <section aria-labelledby="credits-title">
-        <h2 id="credits-title">Credits & Licenses</h2>
-        <p>Definitely is built with the help of these open resources:</p>
+    <h1>Credits & Licenses</h1>
+    <p>Definitely is built with the help of these open resources:</p>
 
-        <h3>Open Source Dependencies</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/PostHog/posthog-ios" target="_blank" rel="noopener noreferrer">
-                    PostHog iOS
-                </a>
-                — MIT License — analytics client for product insights with privacy controls.
-            </li>
-            <li>
-                <a href="https://github.com/simibac/ConfettiSwiftUI" target="_blank" rel="noopener noreferrer">
-                    ConfettiSwiftUI
-                </a>
-                — MIT License — confetti animations to celebrate milestones.
-            </li>
-        </ul>
+    <h2>Open Source Dependencies</h2>
+    <ul>
+        <li>
+            <a href="https://github.com/PostHog/posthog-ios" target="_blank" rel="noopener noreferrer">PostHog iOS</a>
+            — MIT License — analytics client for product insights with privacy controls.
+        </li>
+        <li>
+            <a href="https://github.com/simibac/ConfettiSwiftUI" target="_blank"
+                rel="noopener noreferrer">ConfettiSwiftUI</a>
+            — MIT License — confetti animations to celebrate milestones.
+        </li>
+    </ul>
 
-        <h3>APIs & Data Sources</h3>
-        <ul>
-            <li>
-                <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">
-                    dictionaryapi.dev
-                </a>
-                — free dictionary definitions for word lookups.
-            </li>
-            <li>
-                <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener noreferrer">
-                    Datamuse API
-                </a>
-                — word suggestions and related terms.
-            </li>
-        </ul>
+    <h2>APIs & Data Sources</h2>
+    <ul>
+        <li>
+            <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">dictionaryapi.dev</a>
+            — free dictionary definitions for word lookups.
+        </li>
+        <li>
+            <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener noreferrer">Datamuse API</a>
+            — word suggestions and related terms.
+        </li>
+    </ul>
 
-        <p>MIT components below include full license text. API usage is subject to each provider's terms.</p>
+    <p>MIT components below include full license text. API usage is subject to each provider's terms.</p>
 
-        <h3>License Texts</h3>
+    <h2>License Texts</h2>
 
-        <article aria-labelledby="posthog-mit-title">
-            <h4 id="posthog-mit-title">PostHog iOS — MIT License</h4>
-            <pre>
-MIT License
+    <h3>PostHog iOS — MIT License</h3>
+    <pre>MIT License
 
 Copyright (c) 2023 PostHog
 
@@ -95,14 +148,10 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-    </pre>
-        </article>
+SOFTWARE.</pre>
 
-        <article aria-labelledby="confetti-mit-title">
-            <h4 id="confetti-mit-title">ConfettiSwiftUI — MIT License</h4>
-            <pre>
-MIT License
+    <h3>ConfettiSwiftUI — MIT License</h3>
+    <pre>MIT License
 
 Copyright (c) 2020 Simon Bachmann
 
@@ -122,10 +171,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-    </pre>
-        </article>
-    </section>
+SOFTWARE.</pre>
 
 </body>
 
