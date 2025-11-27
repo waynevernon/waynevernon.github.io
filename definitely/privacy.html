@@ -85,7 +85,8 @@
             <p class="page-text">This app is not intended for children under 13.</p>
 
             <div class="page-footer">
-                Questions? <a class="link" data-email-user="wayne.vernon" data-email-domain="gmail.com">Email us</a>.
+                Questions? <a class="link" data-email-user="wayne.vernon" data-email-domain="gmail.com"
+                    data-email-subject="Privacy - Definitely">Email us</a>.
             </div>
         </main>
     </div>
@@ -95,8 +96,10 @@
             nodes.forEach(node => {
                 const user = node.getAttribute("data-email-user");
                 const domain = node.getAttribute("data-email-domain");
+                const subject = node.getAttribute("data-email-subject");
                 const address = `${user}@${domain}`;
-                node.setAttribute("href", `mailto:${address}`);
+                const mailto = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
+                node.setAttribute("href", mailto);
                 if (!node.textContent.trim()) {
                     node.textContent = "Contact";
                 }
