@@ -4,24 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Definitely | Remember every word</title>
-    <meta name="description"
-        content="Definitely is an iOS flashcard app that keeps your vocabulary synced with iCloud, adapts reviews to you, and never sends your words to our servers.">
+    <title>Definitely | Coming Soon</title>
     <meta name="theme-color" content="#05070d">
     <meta name="color-scheme" content="dark">
-    <link rel="canonical" href="https://waynevernon.com/definitely/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Definitely | Remember every word">
-    <meta property="og:description"
-        content="Capture words fast, review with spaced repetition, and keep everything private with iCloud sync.">
-    <meta property="og:url" content="https://waynevernon.com/definitely/">
-    <meta property="og:site_name" content="Definitely">
-    <meta property="og:image" content="https://waynevernon.com/definitely/social-card.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Definitely | Remember every word">
-    <meta name="twitter:description"
-        content="Capture words fast, review with spaced repetition, and keep everything private with iCloud sync.">
-    <meta name="twitter:image" content="https://waynevernon.com/definitely/social-card.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -29,289 +14,51 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="definitely-logo.png">
-    <link rel="manifest" href="site.webmanifest">
-    <script src="analytics.js" defer></script>
-    <script type="application/ld+json">
-        [
-            {
-                "@context": "https://schema.org",
-                "@type": "MobileApplication",
-                "name": "Definitely",
-                "operatingSystem": "iOS",
-                "applicationCategory": "EducationApplication",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                },
-                "url": "https://waynevernon.com/definitely/",
-                "image": "https://waynevernon.com/definitely/social-card.svg",
-                "downloadUrl": "https://apps.apple.com/",
-                "creator": {
-                    "@type": "Organization",
-                    "name": "Definitely"
-                }
-            },
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Definitely",
-                "url": "https://waynevernon.com/definitely/",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://waynevernon.com/definitely/?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                }
-            }
-        ]
-    </script>
+    <link rel="apple-touch-icon" href="definitely-icon.png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(124, 240, 201, 0.08), transparent 60%), var(--bg);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .brand img {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .coming-soon {
+            font-size: 1.25rem;
+            color: var(--muted);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="shell">
-        <header>
-            <div class="brand">
-                <img src="definitely-logo.png" alt="Definitely app logo" decoding="async">
-                <span>Definitely</span>
-            </div>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="copy">
-                    <div class="cta top">
-                        <a class="app-store"
-                            href="https://apps.apple.com/"
-                            target="_blank" rel="noopener noreferrer">
-                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                alt="Download on the App Store" loading="lazy" decoding="async">
-                        </a>
-                    </div>
-                    <h1>Remember every word that matters.</h1>
-                    <p class="lede">Definitely keeps your vocabulary sharp with fast capture, spaced repetition, and
-                        friendly reminders that run on your schedule. Syncs privately with iCloud so your words stay
-                        yours.</p>
-
-                    <ul class="feature-list">
-                        <li><span class="icon" aria-hidden="true"></span>Spaced reviews that adapt to what you know
-                        </li>
-                        <li><span class="icon" aria-hidden="true"></span>Cloud-safe: your words live on your devices,
-                            synced with iCloud</li>
-                        <li><span class="icon" aria-hidden="true"></span>Smart suggestions and definitions when you want
-                            a head start</li>
-                    </ul>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="glow"></div>
-                    <div class="device">
-                        <div class="status-bar">
-                            <span>Today</span>
-                            <span>9:41</span>
-                        </div>
-                        <div class="carousel" aria-live="polite">
-                            <div class="slides">
-                                <article class="slide active">
-                                    <div class="mock-screen">
-                                        <div class="mock-header">
-                                            <span class="tag">Streak 12 days</span>
-                                            <span class="pill">Smart review</span>
-                                        </div>
-                                        <div class="card-list">
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>elevate</strong>
-                                                    <p class="lede">Raise to a higher standard</p>
-                                                </div>
-                                                <span class="pill">due now</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>serendipity</strong>
-                                                    <p class="lede">Happy, unexpected discovery</p>
-                                                </div>
-                                                <span class="pill success">+3 xp</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>incipient</strong>
-                                                    <p class="lede">Starting to come into being</p>
-                                                </div>
-                                                <span class="pill">later today</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="slide">
-                                    <div class="mock-screen">
-                                        <div class="mock-header">
-                                            <span class="tag">Add new card</span>
-                                            <span class="pill">One-tap capture</span>
-                                        </div>
-                                        <div class="card-list">
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>ephemeral</strong>
-                                                    <p class="lede">Lasting for a very short time</p>
-                                                </div>
-                                                <span class="pill success">suggested</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>mnemonic</strong>
-                                                    <p class="lede">Memory aid that sticks</p>
-                                                </div>
-                                                <span class="pill">auto-define</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>lingua franca</strong>
-                                                    <p class="lede">Shared bridge language</p>
-                                                </div>
-                                                <span class="pill">save</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="slide">
-                                    <div class="mock-screen">
-                                        <div class="mock-header">
-                                            <span class="tag">Stay accountable</span>
-                                            <span class="pill">Gentle reminders</span>
-                                        </div>
-                                        <div class="card-list">
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>Daily 8:00 PM</strong>
-                                                    <p class="lede">15 cards, 3 minutes</p>
-                                                </div>
-                                                <span class="pill success">on</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>Weekly digest</strong>
-                                                    <p class="lede">New words learned + streaks</p>
-                                                </div>
-                                                <span class="pill">Sunday</span>
-                                            </div>
-                                            <div class="card-row">
-                                                <div>
-                                                    <strong>Focus mode</strong>
-                                                    <p class="lede">Hide spoilers until reveal</p>
-                                                </div>
-                                                <span class="pill">enabled</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="nav-buttons">
-                                <button type="button" class="prev" aria-label="Previous screenshot">&#8592;</button>
-                                <button type="button" class="next" aria-label="Next screenshot">&#8594;</button>
-                                <div class="dots" aria-hidden="true">
-                                    <button class="active"></button>
-                                    <button></button>
-                                    <button></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <span>Built for people who want to remember their words, definitely.</span>
-            <div>
-                <a href="privacy.html">Privacy</a>
-                &nbsp;&bull;&nbsp;
-                <a href="credits.html">Credits</a>
-                &nbsp;&bull;&nbsp;
-                <a class="contact-link" data-email-user="wayne.vernon" data-email-domain="gmail.com">Contact</a>
-            </div>
-        </footer>
+    <div class="brand">
+        <img src="definitely-icon.png" alt="Definitely app logo">
+        <span>Definitely</span>
     </div>
-
-    <script>
-        const slides = Array.from(document.querySelectorAll(".slide"));
-        const dotButtons = Array.from(document.querySelectorAll(".dots button"));
-        const prev = document.querySelector(".prev");
-        const next = document.querySelector(".next");
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const appStoreLink = document.querySelector(".app-store");
-
-        let current = 0;
-        let timer = null;
-
-        function showSlide(index) {
-            current = (index + slides.length) % slides.length;
-            slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
-            dotButtons.forEach((dot, i) => dot.classList.toggle("active", i === current));
-        }
-
-        function restartTimer() {
-            if (prefersReducedMotion.matches) {
-                return;
-            }
-            clearInterval(timer);
-            timer = setInterval(() => showSlide(current + 1), 5200);
-        }
-
-        prev.addEventListener("click", () => {
-            showSlide(current - 1);
-            restartTimer();
-        });
-
-        next.addEventListener("click", () => {
-            showSlide(current + 1);
-            restartTimer();
-        });
-
-        dotButtons.forEach((dot, i) => {
-            dot.addEventListener("click", () => {
-                showSlide(i);
-                restartTimer();
-            });
-        });
-
-        restartTimer();
-
-        const handleMotionChange = (event) => {
-            if (event.matches) {
-                clearInterval(timer);
-            } else {
-                restartTimer();
-            }
-        };
-
-        if (prefersReducedMotion.addEventListener) {
-            prefersReducedMotion.addEventListener("change", handleMotionChange);
-        } else if (prefersReducedMotion.addListener) {
-            prefersReducedMotion.addListener(handleMotionChange);
-        }
-
-        appStoreLink?.addEventListener("click", () => {
-            if (window.posthog && typeof posthog.capture === "function") {
-                posthog.capture("App Store Click", { location: "hero_cta" });
-            }
-        });
-
-        (function obfuscateEmail() {
-            const nodes = document.querySelectorAll("[data-email-user][data-email-domain]");
-            nodes.forEach(node => {
-                const user = node.getAttribute("data-email-user");
-                const domain = node.getAttribute("data-email-domain");
-                const address = `${user}@${domain}`;
-                node.setAttribute("href", `mailto:${address}`);
-                if (!node.textContent.trim()) {
-                    node.textContent = "Contact";
-                }
-            });
-        })();
-    </script>
+    <div class="coming-soon">Coming Soon</div>
 </body>
 
 </html>
