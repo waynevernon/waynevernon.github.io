@@ -23,8 +23,12 @@
     <meta name="twitter:description"
         content="Add words. Flip to reveal. Smart spacing brings back what matters next. Hit your Daily Goal, then use Practice Mode anytime. Private iCloud sync.">
     <meta name="twitter:image" content="https://waynevernon.com/definitely/images/definitely-icon.png">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Definitely">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://*.i.posthog.com https://*.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://developer.apple.com https://*.posthog.com; connect-src 'self' https://us.i.posthog.com https://*.i.posthog.com https://*.posthog.com; frame-src 'none';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap" as="style">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -32,6 +36,20 @@
     <link rel="icon" type="image/png" href="images/definitely-icon.png">
     <link rel="apple-touch-icon" href="images/definitely-icon.png">
     <link rel="manifest" href="site.webmanifest">
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/definitely/sw.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
     <script src="js/analytics.js" defer></script>
     <script type="application/ld+json">
         [
@@ -51,8 +69,34 @@
                 "downloadUrl": "https://apps.apple.com/",
                 "creator": {
                     "@type": "Organization",
-                    "name": "Definitely"
+                    "name": "Definitely",
+                    "url": "https://waynevernon.com/definitely/"
+                },
+                "description": "Add words. Flip to reveal. Smart spacing brings back what matters next. Hit your Daily Goal, then use Practice Mode anytime. Private iCloud sync.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "ratingCount": "1"
                 }
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Definitely",
+                "url": "https://waynevernon.com/definitely/",
+                "logo": "https://waynevernon.com/definitely/images/definitely-icon.png"
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://waynevernon.com/definitely/"
+                    }
+                ]
             },
             {
                 "@context": "https://schema.org",
@@ -70,23 +114,25 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="shell">
         <header>
-            <a class="brand" href="index.html">
-                <img src="images/definitely-icon.png" alt="Definitely app logo" decoding="async">
+            <a class="brand" href="index.html" aria-label="Definitely - Home">
+                <img src="images/definitely-icon.png" alt="Definitely app logo" width="40" height="40" decoding="async">
                 <span>Definitely</span>
             </a>
         </header>
 
-        <main>
+        <main id="main-content">
             <section class="hero">
                 <div class="copy">
                    <div class="cta top">
                         <a class="app-store"
                             href="https://apps.apple.com/"
-                            target="_blank" rel="noopener noreferrer">
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Download Definitely on the App Store">
                             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                alt="Download on the App Store" loading="lazy" decoding="async">
+                                alt="Download on the App Store" width="120" height="40" loading="lazy" decoding="async">
                         </a>
                     </div> 
                     <h1>Learn Words That Stick.</h1>
@@ -105,43 +151,47 @@
                 <div class="hero-visual">
                     <div class="glow"></div>
                     <div class="device">
-                        <div class="carousel" aria-live="polite">
-                            <div class="slides">
-                                <article class="slide active">
+                        <div class="carousel" aria-live="polite" aria-label="App screenshots carousel">
+                            <div class="slides" role="group" aria-label="Screenshots">
+                                <article class="slide active" aria-hidden="false">
                                     <img class="screenshot" src="images/screenshots/screenshot-1.png"
-                                        alt="Definitely app screenshot">
+                                        alt="Definitely app screenshot showing flashcard interface" width="420" height="500" loading="eager" fetchpriority="high">
                                 </article>
 
-                                <article class="slide">
+                                <article class="slide" aria-hidden="true">
                                     <img class="screenshot" src="images/screenshots/screenshot-2.png"
-                                        alt="Definitely app screenshot">
+                                        alt="Definitely app screenshot showing word list" width="420" height="500" loading="lazy">
                                 </article>
 
-                                <article class="slide">
+                                <article class="slide" aria-hidden="true">
                                     <img class="screenshot" src="images/screenshots/screenshot-3.png"
-                                        alt="Definitely app screenshot">
+                                        alt="Definitely app screenshot showing practice mode" width="420" height="500" loading="lazy">
                                 </article>
 
-                                <article class="slide">
+                                <article class="slide" aria-hidden="true">
                                     <img class="screenshot" src="images/screenshots/screenshot-4.png"
-                                        alt="Definitely app screenshot">
+                                        alt="Definitely app screenshot showing daily goal" width="420" height="500" loading="lazy">
                                 </article>
 
-                                <article class="slide">
+                                <article class="slide" aria-hidden="true">
                                     <img class="screenshot" src="images/screenshots/screenshot-5.png"
-                                        alt="Definitely app screenshot">
+                                        alt="Definitely app screenshot showing settings" width="420" height="500" loading="lazy">
                                 </article>
                             </div>
-                            <div class="nav-buttons">
-                                <button type="button" class="prev" aria-label="Previous screenshot">&#8592;</button>
-                                <button type="button" class="next" aria-label="Next screenshot">&#8594;</button>
-                                <div class="dots" aria-hidden="true">
-                                    <button class="active"></button>
-                                    <button></button>
-                                    <button></button>
-                                    <button></button>
-                                    <button></button>
+                            <div class="nav-buttons" role="group" aria-label="Carousel navigation">
+                                <button type="button" class="prev" aria-label="Previous screenshot" title="Previous screenshot">
+                                    <span aria-hidden="true">&#8592;</span>
+                                </button>
+                                <div class="dots" role="tablist" aria-label="Screenshot indicators">
+                                    <button type="button" role="tab" aria-selected="true" aria-label="Screenshot 1" tabindex="0" title="Go to screenshot 1"></button>
+                                    <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 2" tabindex="-1" title="Go to screenshot 2"></button>
+                                    <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 3" tabindex="-1" title="Go to screenshot 3"></button>
+                                    <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 4" tabindex="-1" title="Go to screenshot 4"></button>
+                                    <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 5" tabindex="-1" title="Go to screenshot 5"></button>
                                 </div>
+                                <button type="button" class="next" aria-label="Next screenshot" title="Next screenshot">
+                                    <span aria-hidden="true">&#8594;</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -157,7 +207,7 @@
                 <a href="credits.html">Credits</a>
                 &nbsp;&bull;&nbsp;
                 <a class="contact-link" data-email-user="wayne.vernon" data-email-domain="gmail.com"
-                    data-email-subject="Contact — Definitely">Contact</a>
+                    data-email-subject="Contact — Definitely" aria-label="Contact Definitely support">Contact</a>
             </div>
         </footer>
     </div>
@@ -167,16 +217,46 @@
         const dotButtons = Array.from(document.querySelectorAll(".dots button"));
         const prev = document.querySelector(".prev");
         const next = document.querySelector(".next");
+        const carousel = document.querySelector(".carousel");
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
         const appStoreLink = document.querySelector(".app-store");
 
         let current = 0;
         let timer = null;
+        let isTransitioning = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const SWIPE_THRESHOLD = 50;
 
-        function showSlide(index) {
-            current = (index + slides.length) % slides.length;
-            slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
-            dotButtons.forEach((dot, i) => dot.classList.toggle("active", i === current));
+        function showSlide(index, direction = 0) {
+            if (isTransitioning) return;
+            
+            const newIndex = (index + slides.length) % slides.length;
+            if (newIndex === current) return;
+            
+            isTransitioning = true;
+            const previousIndex = current;
+            current = newIndex;
+            
+            // Update slides
+            slides.forEach((slide, i) => {
+                const isActive = i === current;
+                slide.classList.toggle("active", isActive);
+                slide.setAttribute("aria-hidden", !isActive);
+            });
+            
+            // Update dots
+            dotButtons.forEach((dot, i) => {
+                const isActive = i === current;
+                dot.classList.toggle("active", isActive);
+                dot.setAttribute("aria-selected", isActive);
+                dot.setAttribute("tabindex", isActive ? "0" : "-1");
+            });
+            
+            // Reset transition lock after animation
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 400);
         }
 
         function restartTimer() {
@@ -184,24 +264,120 @@
                 return;
             }
             clearInterval(timer);
-            timer = setInterval(() => showSlide(current + 1), 5200);
+            timer = setInterval(() => {
+                if (!isTransitioning) {
+                    showSlide(current + 1);
+                }
+            }, 5000);
         }
 
-        prev.addEventListener("click", () => {
-            showSlide(current - 1);
-            restartTimer();
-        });
+        function handlePrev() {
+            if (!isTransitioning) {
+                showSlide(current - 1);
+                restartTimer();
+            }
+        }
 
-        next.addEventListener("click", () => {
-            showSlide(current + 1);
-            restartTimer();
-        });
+        function handleNext() {
+            if (!isTransitioning) {
+                showSlide(current + 1);
+                restartTimer();
+            }
+        }
+
+        prev?.addEventListener("click", handlePrev);
+        next?.addEventListener("click", handleNext);
 
         dotButtons.forEach((dot, i) => {
             dot.addEventListener("click", () => {
-                showSlide(i);
+                if (!isTransitioning && i !== current) {
+                    showSlide(i);
+                    restartTimer();
+                }
+            });
+        });
+
+        // Touch/swipe support
+        if (carousel) {
+            carousel.addEventListener("touchstart", (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            carousel.addEventListener("touchend", (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > SWIPE_THRESHOLD) {
+                    if (diff > 0) {
+                        handleNext();
+                    } else {
+                        handlePrev();
+                    }
+                }
+            }
+
+            // Mouse drag support
+            let isDragging = false;
+            let dragStartX = 0;
+
+            carousel.addEventListener("mousedown", (e) => {
+                isDragging = true;
+                dragStartX = e.clientX;
+                carousel.style.cursor = "grabbing";
+            });
+
+            document.addEventListener("mousemove", (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            });
+
+            document.addEventListener("mouseup", (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                carousel.style.cursor = "";
+                const diff = dragStartX - e.clientX;
+                if (Math.abs(diff) > SWIPE_THRESHOLD) {
+                    if (diff > 0) {
+                        handleNext();
+                    } else {
+                        handlePrev();
+                    }
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+            const carouselElement = document.activeElement.closest(".carousel");
+            if (carouselElement || document.activeElement.closest(".nav-buttons")) {
+                if (e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    handlePrev();
+                } else if (e.key === "ArrowRight") {
+                    e.preventDefault();
+                    handleNext();
+                }
+            }
+        });
+
+        // Pause on hover
+        if (carousel) {
+            carousel.addEventListener("mouseenter", () => {
+                clearInterval(timer);
+            });
+            carousel.addEventListener("mouseleave", () => {
                 restartTimer();
             });
+        }
+
+        // Cleanup on page unload
+        window.addEventListener("beforeunload", () => {
+            if (timer) {
+                clearInterval(timer);
+            }
         });
 
         restartTimer();
@@ -227,18 +403,24 @@
         });
 
         (function obfuscateEmail() {
-            const nodes = document.querySelectorAll("[data-email-user][data-email-domain]");
-            nodes.forEach(node => {
-                const user = node.getAttribute("data-email-user");
-                const domain = node.getAttribute("data-email-domain");
-                const subject = node.getAttribute("data-email-subject");
-                const address = `${user}@${domain}`;
-                const mailto = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
-                node.setAttribute("href", mailto);
-                if (!node.textContent.trim()) {
-                    node.textContent = "Contact";
-                }
-            });
+            try {
+                const nodes = document.querySelectorAll("[data-email-user][data-email-domain]");
+                nodes.forEach(node => {
+                    const user = node.getAttribute("data-email-user");
+                    const domain = node.getAttribute("data-email-domain");
+                    const subject = node.getAttribute("data-email-subject");
+                    if (user && domain) {
+                        const address = `${user}@${domain}`;
+                        const mailto = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
+                        node.setAttribute("href", mailto);
+                        if (!node.textContent.trim()) {
+                            node.textContent = "Contact";
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Email obfuscation error:", error);
+            }
         })();
     </script>
 </body>
