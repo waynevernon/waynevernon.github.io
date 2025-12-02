@@ -385,10 +385,13 @@ h3 {
 .feature-list .icon {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     margin-top: 4px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
     box-shadow: 0 0 0 6px rgba(15, 107, 220, 0.12);
+    flex-shrink: 0;
 }
 
 .cta-section {
@@ -883,6 +886,15 @@ pre {
     
     .feature-list li {
         padding: var(--spacing-sm) var(--spacing-md);
+        align-items: flex-start;
+    }
+    
+    .feature-list .icon {
+        flex-shrink: 0;
+        width: 12px;
+        height: 12px;
+        min-width: 12px;
+        min-height: 12px;
     }
     
     .nav-buttons {
