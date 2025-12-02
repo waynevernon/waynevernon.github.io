@@ -166,28 +166,33 @@
                             <div class="swipe-hint" aria-hidden="true">Swipe to view</div>
                             <div class="slides" role="group" aria-label="Screenshots">
                                 <article class="slide active" aria-hidden="false">
-                                    <img class="screenshot" src="images/screenshots/screenshot-1.png"
-                                        alt="Definitely app screenshot showing flashcard interface" width="1284" height="2778" loading="eager" fetchpriority="high">
+                                    <img class="screenshot" src="images/screenshots/screenshot-1.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="eager" fetchpriority="high">
                                 </article>
 
                                 <article class="slide" aria-hidden="true">
-                                    <img class="screenshot" src="images/screenshots/screenshot-2.png"
-                                        alt="Definitely app screenshot showing word list" width="1284" height="2778" loading="lazy">
+                                    <img class="screenshot" src="images/screenshots/screenshot-2.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="lazy">
                                 </article>
 
                                 <article class="slide" aria-hidden="true">
-                                    <img class="screenshot" src="images/screenshots/screenshot-3.png"
-                                        alt="Definitely app screenshot showing practice mode" width="1284" height="2778" loading="lazy">
+                                    <img class="screenshot" src="images/screenshots/screenshot-3.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="lazy">
                                 </article>
 
                                 <article class="slide" aria-hidden="true">
-                                    <img class="screenshot" src="images/screenshots/screenshot-4.png"
-                                        alt="Definitely app screenshot showing daily goal" width="1284" height="2778" loading="lazy">
+                                    <img class="screenshot" src="images/screenshots/screenshot-4.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="lazy">
                                 </article>
 
                                 <article class="slide" aria-hidden="true">
-                                    <img class="screenshot" src="images/screenshots/screenshot-5.png"
-                                        alt="Definitely app screenshot showing settings" width="1284" height="2778" loading="lazy">
+                                    <img class="screenshot" src="images/screenshots/screenshot-5.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="lazy">
+                                </article>
+
+                                <article class="slide" aria-hidden="true">
+                                    <img class="screenshot" src="images/screenshots/screenshot-6.jpg"
+                                        alt="Definitely app screenshot" width="1284" height="2778" loading="lazy">
                                 </article>
                             </div>
                             <div class="nav-buttons" role="group" aria-label="Carousel navigation">
@@ -195,11 +200,12 @@
                                     <span aria-hidden="true">&#8592;</span>
                                 </button>
                                 <div class="dots" role="tablist" aria-label="Screenshot indicators">
-                                    <button type="button" role="tab" aria-selected="true" aria-label="Screenshot 1" tabindex="0" title="Go to screenshot 1"></button>
+                                    <button type="button" role="tab" aria-selected="true" aria-label="Screenshot 1" tabindex="0" title="Go to screenshot 1" class="active"></button>
                                     <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 2" tabindex="-1" title="Go to screenshot 2"></button>
                                     <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 3" tabindex="-1" title="Go to screenshot 3"></button>
                                     <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 4" tabindex="-1" title="Go to screenshot 4"></button>
                                     <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 5" tabindex="-1" title="Go to screenshot 5"></button>
+                                    <button type="button" role="tab" aria-selected="false" aria-label="Screenshot 6" tabindex="-1" title="Go to screenshot 6"></button>
                                 </div>
                                 <button type="button" class="next" aria-label="Next screenshot" title="Next screenshot">
                                     <span aria-hidden="true">&#8594;</span>
@@ -239,6 +245,13 @@
         let touchStartX = 0;
         let touchEndX = 0;
         const SWIPE_THRESHOLD = 50;
+
+        // Initialize first dot as active
+        if (dotButtons.length > 0) {
+            dotButtons[0].classList.add("active");
+            dotButtons[0].setAttribute("aria-selected", "true");
+            dotButtons[0].setAttribute("tabindex", "0");
+        }
 
         function showSlide(index, direction = 0) {
             if (isTransitioning) return;
