@@ -4,3 +4,4 @@ Allow: /
 # Sitemap (if you add one later)
 # Sitemap: https://waynevernon.com/sitemap.xml
 
+
