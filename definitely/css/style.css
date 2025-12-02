@@ -754,6 +754,7 @@ details {
     background: var(--panel-strong);
     border: 1px solid var(--border);
     padding: var(--spacing-md);
+    overflow: hidden;
 }
 
 details summary {
@@ -805,9 +806,13 @@ pre {
     border: 1px solid rgba(15, 107, 220, 0.2);
     color: var(--text);
     overflow-x: auto;
+    overflow-y: hidden;
     font-size: 0.9rem;
     line-height: 1.6;
     font-family: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .page-footer {
@@ -892,6 +897,17 @@ pre {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-sm);
+    }
+    
+    details {
+        padding: var(--spacing-sm);
+    }
+    
+    pre {
+        font-size: 0.8rem;
+        padding: var(--spacing-sm);
+        max-height: 400px;
+        overflow-y: auto;
     }
 }
 
