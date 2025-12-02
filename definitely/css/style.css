@@ -69,13 +69,14 @@ body {
     }
 
     .slide {
-        background: linear-gradient(150deg, rgba(12, 16, 26, 0.92), rgba(12, 16, 26, 0.8));
-        border-color: rgba(255, 255, 255, 0.08);
+        background: var(--panel-strong);
+        border-color: var(--border);
     }
 
     .screenshot {
         border-color: rgba(255, 255, 255, 0.08);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), var(--card-shadow);
+        background: var(--panel);
     }
 }
 
@@ -97,6 +98,29 @@ button {
     outline: 3px solid var(--accent);
     outline-offset: 4px;
     border-radius: 4px;
+    outline-width: 3px;
+}
+
+.app-store:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.feature-list li:focus-within {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.nav-buttons .prev:focus-visible,
+.nav-buttons .next:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.dots button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 50%;
 }
 
 /* Skip to content link */
@@ -139,7 +163,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: var(--header-height);
+    min-height: calc(var(--header-height) + 16px);
     padding: var(--spacing-lg) 0;
     gap: var(--spacing-md);
 }
@@ -149,6 +173,7 @@ header {
     align-items: center;
     gap: var(--spacing-md);
     font-weight: 600;
+    font-size: 1.25rem;
     letter-spacing: -0.01em;
     font-family: var(--sans);
     color: var(--text);
@@ -167,9 +192,9 @@ header {
 }
 
 .brand img {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
     object-fit: contain;
     box-shadow: var(--shadow-soft);
     flex-shrink: 0;
@@ -178,6 +203,42 @@ header {
 
 .brand:hover img {
     transform: scale(1.05);
+}
+
+.app-store-header {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    border-radius: 14px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    background: var(--panel-strong);
+}
+
+.app-store-header:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(15, 107, 220, 0.3);
+}
+
+.app-store-header:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.app-store-header img {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 720px) {
+    .app-store-header {
+        display: none;
+    }
 }
 
 nav {
@@ -206,13 +267,13 @@ nav a:hover {
 
 /* Main content area */
 main {
-    padding: var(--spacing-2xl) 0;
+    padding: 0;
     width: 100%;
 }
 
 h1 {
     font-size: clamp(2.4rem, 4vw, 3.3rem);
-    margin: var(--spacing-lg) 0 var(--spacing-md);
+    margin: var(--spacing-md) 0 var(--spacing-md);
     letter-spacing: -0.03em;
     line-height: 1.05;
     font-family: var(--sans);
@@ -237,11 +298,21 @@ h3 {
     color: var(--muted);
     font-size: 1.1rem;
     line-height: 1.65;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .muted {
     color: var(--muted);
+}
+
+.pricing-note {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
 }
 
 .eyebrow {
@@ -263,13 +334,14 @@ h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--spacing-3xl);
-    align-items: center;
+    align-items: start;
+    padding-top: var(--spacing-2xl);
 }
 
 @media (min-width: 900px) {
     .hero {
         grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-3xl);
+        gap: 4rem;
     }
     
     .hero .copy {
@@ -283,7 +355,7 @@ h3 {
 
 .feature-list {
     list-style: none;
-    margin: var(--spacing-xl) 0 var(--spacing-lg);
+    margin: var(--spacing-2xl) 0 0;
     display: grid;
     gap: var(--spacing-md);
 }
@@ -295,14 +367,15 @@ h3 {
     padding: var(--spacing-md) var(--spacing-lg);
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(31, 26, 20, 0.06);
 }
 
 .feature-list li:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-soft);
-    border-color: rgba(15, 107, 220, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(31, 26, 20, 0.12);
+    border-color: rgba(15, 107, 220, 0.3);
 }
 
 .feature-list .icon {
@@ -314,11 +387,20 @@ h3 {
     box-shadow: 0 0 0 6px rgba(15, 107, 220, 0.12);
 }
 
+.cta-section {
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
 .cta {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
     flex-wrap: wrap;
 }
 
@@ -338,14 +420,15 @@ h3 {
 }
 
 .app-store img {
-    height: 46px;
+    height: 52px;
     width: auto;
     display: block;
 }
 
 .app-store:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: var(--glow);
+    border-color: rgba(15, 107, 220, 0.3);
 }
 
 .secondary-link {
@@ -357,10 +440,12 @@ h3 {
 
 .hero-visual {
     position: relative;
-    padding: var(--spacing-lg) 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: calc(var(--header-height) - var(--spacing-2xl));
+    padding-right: 0;
 }
 
 .glow {
@@ -374,25 +459,56 @@ h3 {
 
 .device {
     position: relative;
-    padding: var(--spacing-sm);
+    padding: 0;
+    padding-left: var(--spacing-sm);
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .carousel {
     position: relative;
     width: 100%;
     max-width: min(420px, 100%);
-    margin: 0 auto;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 0;
     user-select: none;
     -webkit-user-select: none;
+}
+
+.swipe-hint {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: var(--sans);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .swipe-hint {
+        opacity: 0.7;
+        animation: fadeHint 3s ease-in-out;
+    }
+}
+
+@keyframes fadeHint {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 0.7; }
 }
 
 .slides {
     position: relative;
     width: 100%;
-    min-height: 500px;
+    aspect-ratio: 1284 / 2778;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 14px;
 }
 
 .slide {
@@ -400,10 +516,10 @@ h3 {
     inset: 0;
     display: block;
     width: 100%;
-    border-radius: 18px;
+    border-radius: 14px;
     padding: var(--spacing-sm);
     border: 1px solid var(--border);
-    background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.82));
+    background: var(--panel-strong);
     box-sizing: border-box;
     box-shadow: var(--card-shadow);
     opacity: 0;
@@ -425,14 +541,20 @@ h3 {
 .screenshot {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: 600px;
+    height: 100%;
     border-radius: 12px;
-    object-fit: contain;
+    object-fit: cover;
     border: none;
     box-shadow: var(--card-shadow);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    background: var(--panel);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.screenshot.loaded {
+    opacity: 1;
 }
 
 .nav-buttons {
@@ -503,6 +625,17 @@ h3 {
     position: relative;
 }
 
+@media (max-width: 720px) {
+    .dots button {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .dots .active {
+        width: 28px;
+    }
+}
+
 .dots button:hover {
     transform: scale(1.2);
     background: rgba(15, 107, 220, 0.35);
@@ -527,7 +660,7 @@ h3 {
     align-items: center;
     color: var(--muted);
     font-size: 0.95rem;
-    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    padding: var(--spacing-3xl) 0 var(--spacing-lg);
     gap: var(--spacing-md);
     flex-wrap: wrap;
     margin-top: auto;
@@ -705,6 +838,8 @@ pre {
     
     .hero .hero-visual {
         order: 2;
+        margin-top: 0;
+        justify-content: center;
     }
 
     .device {
@@ -713,22 +848,19 @@ pre {
 
     .carousel {
         max-width: 100%;
-    }
-
-    .slides {
-        min-height: 400px;
+        margin: 0 auto;
     }
 
     .slide {
         padding: var(--spacing-xs);
     }
-
-    .screenshot {
-        max-height: 500px;
-    }
     
     main {
-        padding: var(--spacing-xl) 0;
+        padding: 0;
+    }
+    
+    .hero {
+        padding-top: var(--spacing-xl);
     }
     
     h1 {
@@ -737,6 +869,11 @@ pre {
     
     .feature-list {
         margin: var(--spacing-lg) 0;
+        gap: var(--spacing-md);
+    }
+    
+    .feature-list li {
+        padding: var(--spacing-sm) var(--spacing-md);
     }
     
     .nav-buttons {

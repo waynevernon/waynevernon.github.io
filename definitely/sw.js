@@ -6,7 +6,7 @@ const urlsToCache = [
   '/definitely/privacy.html',
   '/definitely/credits.html',
   '/definitely/css/style.css',
-  '/definitely/images/definitely-icon.png',
+  '/definitely/images/definitely-icon-dark.png',
   '/definitely/images/definitely-logo.png',
   '/definitely/js/analytics.js'
 ];
@@ -82,4 +82,5 @@ self.addEventListener('fetch', (event) => {
       })
   );
 });
+
 

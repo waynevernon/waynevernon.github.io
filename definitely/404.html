@@ -18,8 +18,8 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="images/definitely-icon.png">
-    <link rel="apple-touch-icon" href="images/definitely-icon.png">
+    <link rel="icon" type="image/png" href="images/definitely-icon-dark.png">
+    <link rel="apple-touch-icon" href="images/definitely-icon-dark.png">
     <link rel="manifest" href="site.webmanifest">
     <script>
         // Register service worker
@@ -43,7 +43,10 @@
     <div class="shell narrow">
         <header>
             <a class="brand" href="index.html" aria-label="Definitely - Home">
-                <img src="images/definitely-icon.png" alt="Definitely app logo" width="40" height="40" decoding="async">
+                <picture>
+                    <source srcset="images/definitely-icon-light.png" media="(prefers-color-scheme: dark)">
+                    <img src="images/definitely-icon-dark.png" alt="Definitely app logo" width="56" height="56" decoding="async">
+                </picture>
                 <span>Definitely</span>
             </a>
         </header>

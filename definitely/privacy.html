@@ -17,12 +17,12 @@
         content="Learn how Definitely keeps your flashcards private and on your devices, with optional analytics for reliability.">
     <meta property="og:url" content="https://waynevernon.com/definitely/privacy.html">
     <meta property="og:site_name" content="Definitely">
-    <meta property="og:image" content="https://waynevernon.com/definitely/images/definitely-icon.png">
+    <meta property="og:image" content="https://waynevernon.com/definitely/images/definitely-icon-dark.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Definitely | Privacy">
     <meta name="twitter:description"
         content="Your vocabulary stays on your devices with iCloud sync; no third-party storage of your words.">
-    <meta name="twitter:image" content="https://waynevernon.com/definitely/images/definitely-icon.png">
+    <meta name="twitter:image" content="https://waynevernon.com/definitely/images/definitely-icon-dark.png">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Definitely">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://us.i.posthog.com https://*.i.posthog.com https://*.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://developer.apple.com https://*.posthog.com; connect-src 'self' https://us.i.posthog.com https://*.i.posthog.com https://*.posthog.com; frame-src 'none';">
@@ -33,8 +33,8 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="images/definitely-icon.png">
-    <link rel="apple-touch-icon" href="images/definitely-icon.png">
+    <link rel="icon" type="image/png" href="images/definitely-icon-dark.png">
+    <link rel="apple-touch-icon" href="images/definitely-icon-dark.png">
     <link rel="manifest" href="site.webmanifest">
     <script>
         // Register service worker
@@ -78,8 +78,18 @@
     <div class="shell narrow">
         <header>
             <a class="brand" href="index.html" aria-label="Definitely - Home">
-                <img src="images/definitely-icon.png" alt="Definitely app logo" width="40" height="40" decoding="async">
+                <picture>
+                    <source srcset="images/definitely-icon-light.png" media="(prefers-color-scheme: dark)">
+                    <img src="images/definitely-icon-dark.png" alt="Definitely app logo" width="56" height="56" decoding="async">
+                </picture>
                 <span>Definitely</span>
+            </a>
+            <a class="app-store-header"
+                href="https://apps.apple.com/app/definitely-flashcards/id6755900302"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Download Definitely on the App Store">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store" width="100" height="33" loading="lazy" decoding="async">
             </a>
         </header>
 
