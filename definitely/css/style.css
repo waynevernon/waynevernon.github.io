@@ -237,7 +237,11 @@ header {
 
 @media (max-width: 720px) {
     .app-store-header {
-        display: none;
+        opacity: 0.9;
+    }
+    
+    .app-store-header img {
+        height: 28px;
     }
 }
 
